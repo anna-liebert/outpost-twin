@@ -1,0 +1,18 @@
+{
+  "name": "outpost-twin",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.3.6"
+  },
+  "dependencies": {
+    "three": "^0.128.0"
+  },
+  "description": "Outpost Twin: Moon and Mars outpost digital twin with real NASA DONKI solar storms. Code written with AI assistance (Claude by Anthropic); concept, design, testing and direction by the author."
+}

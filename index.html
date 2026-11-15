@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Outpost Twin</title>
+  <meta name="description" content="Outpost Twin: a playable Moon and Mars outpost digital twin with real NASA DONKI solar storms. Code written with AI assistance (Claude by Anthropic); concept, design, testing and direction by the author. Not endorsed by NASA.">
+  <meta name="generator" content="Code written with AI assistance (Claude, Anthropic)">
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <div id="app">
+    <header>
+      <h1>Outpost Twin</h1>
+      <span class="m" id="clock">—</span>
+      <div class="seg" id="spd" role="group" aria-label="Speed">
+        <button data-s="0">Pause</button><button data-s="1" class="on">1&times;</button><button data-s="4">4&times;</button><button data-s="16">16&times;</button>
+      </div>
+            <div class="seg" id="bodySel" role="group" aria-label="World"><button data-b="moon">Moon</button><button data-b="mars" class="on">Mars</button></div>
+      <div class="seg" id="lenSel" role="group" aria-label="Mission length"><button data-l="90">90 d</button><button data-l="180" class="on">180 d</button><button data-l="365">365 d</button></div>
+
+<button id="reset">New mission</button>
+            <button id="tutBtn">Tutorial</button>
+                  <button id="lnBtn">Learn</button>
+                  <button id="stBtn" hidden>Self-test</button>
+      <div class="seg" id="lvl" role="group" aria-label="Mode" title="Assisted: plainer words, hints and fewer controls. Standard: every control. Same rules in both."><button data-l="assisted">Assisted</button><button data-l="standard">Standard</button></div>
+    </header>
+        <aside id="left">  <div class="sea">
+    <select id="seaSel" aria-label="Storm season">
+      <option value="random">Storm season: random real year</option>
+      <option value="quiet">Quiet Sun (2018 to 2019)</option>
+      <option value="busy">Busy Sun (2024)</option>
+      <option value="none">No storms</option>
+    </select>
+    <div id="seaTag" class="tag"></div>
+  </div><div id="stats"></div><div id="policy"></div><div id="crewBox"></div></aside>
+        <section id="view">
+      <canvas id="cv"></canvas>
+      <div id="hud" class="m">3D view comes later</div>
+      <div id="end"><div class="box"><h2 id="endT"></h2><p id="endB" class="tag"></p><button class="pri" id="again">Start a new mission</button></div></div>
+    </section>
+    <aside class="r" id="right"></aside>
+       <footer>
+      <div><h2>Telemetry: last 10 days</h2><canvas class="ch" id="chart"></canvas><div class="tag" id="legend"></div></div>
+      <div><h2>Flight log</h2><div class="log" id="log"></div></div>
+    </footer>
+  </div>
+    <div id="tut">
+    <div id="tutHl"></div>
+    <div id="tutCard" role="dialog" aria-labelledby="tutT">
+      <div class="tag" id="tutN"></div><h3 id="tutT"></h3><p id="tutB"></p><div id="tutTry" class="tag"></div>
+      <div class="trow"><button id="tutSkip">Skip tutorial</button><span class="sp"></span><button id="tutBack">Back</button><button class="pri" id="tutNext">Next</button></div>
+    </div>
+  </div>
+    <div id="lnOv" role="dialog" aria-label="Learn">
+    <div class="ovBox">
+      <div class="ovHead"><b>Learn: how the outpost works</b><button id="lnClose">Close</button></div>
+      <div id="lnBody"></div>
+    </div>
+  </div>
+    <div id="stOv">
+    <div class="ovBox" style="width:min(900px,100%)">
+      <div class="ovHead"><b>Self-test</b><span id="stSt" class="tag"></span></div>
+      <textarea id="stOut" readonly aria-label="Self-test report"></textarea>
+      <div style="display:flex;gap:8px"><button class="pri" id="stCopy">Copy report</button><button id="stClose">Close</button></div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
